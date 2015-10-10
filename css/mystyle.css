@@ -1,0 +1,43 @@
+.add-event input[type="submit"]{
+	background: #FA620F;
+	color: #fff;
+	font-size: 18px;
+	outline: none;
+	border: none;
+	width: 20%;
+	transition: .5s all;
+	-webkit-transition: .5s all;
+	-moz-transition: .5s all;
+	-o-transition: .5s all;
+	-ms-transition: .5s all;
+	padding: 10px 0;
+	font-family: 'Righteous', cursive;
+	}
+.add-event input,.add-event textarea {
+  padding: 5px 5px;
+  background: none;
+  font-size: 14px;
+  outline: none;
+  border: 1px solid #5A5A5A;
+  color: #323232;
+  width: 50%;
+}
+.add-event select,.leave-a-comment textarea {
+  padding: 5px 5px;
+  background: none;
+  font-size: 14px;
+  outline: none;
+  border: 1px solid #5A5A5A;
+  color: #323232;
+  width: 50%;
+}
+	.navbar ul li a {
+		padding: 8px 14px;
+	}
+	.navbar ul li a {
+	  padding: 8px 13px;
+	}
+table { width:80%; margin:0 auto; border:0px solid #036; text-align:center; }
+.td { border:2px solid #003; padding:5px; }
+.head { background-color:#903; color: #000; font-weight:bold; }
+.foot { background-color:#C69; color:#003;   }

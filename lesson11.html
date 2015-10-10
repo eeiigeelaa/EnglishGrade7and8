@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+		<link rel="stylesheet" href="css/mystyle.css">
+    <link rel="stylesheet" href="css/style.css">
+	<link rel="stylesheet" href="css/custom.css"/>
+    <script src="js/jquery-2.1.4.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+<style>
+body {
+   background-color: #4295EC
+}
+
+
+</style>
+ <div class="col-lg-12"><br><br><br><br>
+					     <div class="panel panel-default">
+                            <div class="panel-heading">
+                            <center>   <h3 class="panel-title"><i class="fa fa-clock-o fa-fw"></i><img src="img/quiz.png" width="50">QUIZ</h3>
+                            </div>
+                            <div class="panel-body">
+							<!--<img src="img/gh.png" class="img-responsive center-block">-->
+                                <div id="divAnnounce" class="list-group">
+                          
+					<div class="row">
+					<div class="loginbox">
+					<div class="col-lg-12 col-xs-12 col-md-6">
+					
+					</div>
+					</div>
+					</div>
+					
+				</div>
+				      </div><center>
+<script>
+
+var pos = 0, test, test_status, question, choice, choices, chA, chB, chC, correct = 0;
+var questions = [
+    [ "1.	Identify stress, intonation, and pause as elements of spoken language that serve as carriers of meaning.  ", "a. Oral Language and Fluency ", "b.	Vocabulary Development", "Listening Comprehension", "C" ],
+	[ "2.	Use appropriate stress, intonation, and pausing to suit the message and audience. ", "a.	Oral Language and Fluency  ", "b.	Vocabulary Development ", "c.	Reading Comprehension", "A" ],
+	[ "3.	Use different strategies for coping with unfamiliar words and ideas ", "a.	Oral Language and Fluency ", "b.	Vocabulary Development", "c.	Reading Comprehension", "B" ],
+	[ "4. Adjust reading rate based on one’s purpose for reading and the reading material ", "a.	Vocabulary Development", "b.	Listening Comprehension", "c.	Reading Comprehension", "C" ],
+	[ "5. Organize information from what has been viewed ", "a.	Oral Language and Fluency ", "b.	Listening Comprehension", "c.	Viewing Comprehension", "C" ],
+	[ "6.	 Discover literature as a means of understanding the human being and the force/s he has to contend with", "a.	Oral Language and Fluency ", "b.	Literature", "c.	Writing and Composition", "B" ],
+	[ "7. Accomplish forms and prepare notices", "a.	Oral Language and Fluency ", "b.	Literature", "c.	Writing and Composition", "C" ],
+	[ "8. Use varied adjective complementation", "a.	Study Strategies", "Grammar Awareness and Structure", "c.	Writing and Composition", "B" ],
+	[ "9. Gather information using print and/or electronic resources ", "a.	Study Strategies", "Grammar Awareness and Structure", "c.	Writing and Composition", "A" ],
+	[ "10. Ask sensible questions based on one’s initiative ", "a. Grammar Awareness and Structure", "b.	Writing and Composition", "c.	Attitude", "C" ],
+	[ "11.	From the story of the Aged Mother a Japanese Folktale by Matsuo Basho it is the mountain of the “abandoning of aged”.", "ubatsuyama", "mt.Samat", "mt.Apo", "A" ],
+	[ "12.	What are the story of the Aged Mother a Japanese Folktale by Matsuo Basho about? ", "a.	to respect our parents.", "being truthful to people.", "c.	All of the above.", "C" ],
+	[ "13.	These three aspects bring tranquility to those who participate in the tradition by Japanese and Chinese Traditions. ", "a.	The spiritual aspect involves harmony between the persons participating in the ceremony, respect for the olders, and purity", "b.	The spiritual aspect involves harmony between the persons participating in the ceremony, respect for the spiritual , and humanity. ", "c.	The spiritual aspect involves harmony between the persons participating in the ceremony, respect for those involved in the ceremony, and purity.", "C" ],
+	[ "14. Noh & Kabuki Drama Noh drama is rigidly traditional Japanese drama which in its present form dates back to the early 14th century. Noh plays are short dramas combining ____, ", "a.	Music, arts , and singing", "b.	Music, dance, and singing", "c.	Music, dance, and lyrics", "C" ],
+	[ "15. Learning the meaning of words from the context of your reading material can be the most useful strategy to increase your vocabulary comprehension. Using the context that surrounds an unknown word helps to reveal its meaning. ", "a.	Visual-Aural Association ", "c.	Dictionary ", "d.	Context Clues", "C" ],
+	[ "16.	Sometimes a word can give clues to the meaning in its structure. Analyzing the word’s structure and properties is a vocabulary strategy that you can use to figure out the word’s meaning. When you approach an unknown word, you can guess at its meaning by breaking down the parts of the word. ", "a.	Word Structure ", "b.	Visual-Aural Association ", "c.	Dictionary ", "A" ],
+	[ "17. When you use visual-aural association, you think of a word that either looks like or sounds like the word whose meaning you are trying to learn. Thinking of the picture of the look-alike word and/or image will help you remember the word and its meaning. ", "a.	Word Structure ", "b.	Visual-Aural Association ", "c.	Dictionary ", "B" ],
+	[ "18.	The best way to improve your vocabulary is to carry a pocket dictionary to look up new words as you encounter them. Or, you can collect a list of new words you encounter to look up at the end of the day.", "a.	Word Structure ", "b.	Visual-Aural Association ", "c.	Dictionary ", "C" ],
+	[ "19.	The Hand of Blacks presents different myths about the origin of the pale palms of the hands of Black people. In that story a mother tells her son that black people ___________in every way even though her reality and the community that she lives in say otherwise. ", "a.	are not equal to white people.", "b.	are equal to black people too", "c.	are equal to white people", "C" ],
+	[ "20.	The story of The Hands of the Blacks An excerpt from “ We Killed Mangy-Dog” is about. ", "a.	God created dog.", "b.	God created all equally.", "c.	God made Blacks because they had to be", "C" ],
+	[ "21.	The two most famous Puranic epics are the _______and the ______ in the  Characterestic of Indian Literature. ", "a.	Mahabharata and the Ramayano", "b.	Ramayano and the Ramayana", "c.	Mahabharata and the Ramayana", "C" ],
+	[ "22.	In many of the Asian cultures, theatre and dance are still organically related religions and other belief systems today. This deep intermingling of theatre, dance and religion makes it difficult to draw a sharp borderline between dance, ceremonies and rituals, as will be apparent later. On what Asian Traditional Theatre and Dance which is referred to?", "a. Relationship with Religion", "b. The Preservation of Ancient Forms", "c. The Interaction between “Living Theatre” and Puppet Theatre", "A" ],
+	[ "23.	In Asia, puppet theatre and one of its variations, shadow theatre, are often regarded as valued “classical” traditions. ", "a. Relationship with Religion", "b. The Preservation of Ancient Forms", "c. The Interaction between “Living Theatre” and Puppet Theatre", "C" ],
+	[ "24.	In Asia there is an abundance of theatrical traditions with histories of hundreds, sometimes even thousands, of years in which the performance traditions with specific acting techniques are also still preserved. ", "a. Relationship with Religion", "b. The Preservation of Ancient Forms", "c. The Interaction between “Living Theatre” and Puppet Theatre", "B" ],
+	[ "25.	In Asia, drama, dance and music are inseparable. Most of the traditional forms of Asian performing art combine drama, dance and music into a kind of whole in which it is difficult to draw a clear borderline between these art forms.", "a. The Preservation of Ancient Forms", "b. The Interaction between “Living Theatre” and Puppet Theatre", "c. The interrelatedness of drama, dance and music", "C" ],
+	[ "26. On Characterestic of Indian Literature, Sanskrit literature originated with an oral tradition that produced the Vedic holy texts, some time after_____B.C.", "a.	500", "b.	1100", "C.	1500", "C" ],
+	[ "27.	In Characterestic of Indian Literature ,The oldest of these holy works is the Rig Veda-“the Veda of praise”-a collection of ____hymns addressed to the various Gods of the Aryans. ", "a.	1016", "b.	1017", "c.	1018", "B" ],
+	[ "28.	The Brahmanas were followed by the Upanishads, which were discourses between _____ and _______. ", "a.	 principal and pupils.", "b. mother and child.", "c. teachers and pupils.", "A" ],
+	[ "29.	Modern Indian literature started with establishment of civil service training schools and printing presses early in the _____ century.", "a.	19th", "b.	20th", "c.	21th", "A" ],
+	[ "30.	30.	Pioneers in this field included Michael Dutt (_____) and Sudhindranath (____), Tagore, and Sri Aurobindo. Sarojini Naidu achieved fame both as a poet in English and as a patriot. ", "a.	1824-71 - 1901-58", "b.	1824-72 - 1901-59", "c.	1824-73 - 1901-60", "C" ]
+	
+];
+function _(x){
+	return document.getElementById(x);
+}
+function renderQuestion(){
+	test = _("test");
+	if(pos >= questions.length){
+		test.innerHTML = "<h2>You got "+correct+" of "+questions.length+" questions correct</h2>";
+		_("test_status").innerHTML = "QUIZ Completed";
+		pos = 0;
+		correct = 0;
+		return false;
+	}
+	_("test_status").innerHTML = "Question "+(pos+1)+" of "+questions.length;
+	question = questions[pos][0];
+	chA = questions[pos][1];
+	chB = questions[pos][2];
+	chC = questions[pos][3];
+	test.innerHTML = "<h3>"+question+"</h3>";
+	test.innerHTML += "<input type='radio' name='choices' value='A'> "+chA+"<br>";
+	test.innerHTML += "<input type='radio' name='choices' value='B'> "+chB+"<br>";
+	test.innerHTML += "<input type='radio' name='choices' value='C'> "+chC+"<br><br>";
+	test.innerHTML += "<button onclick='checkAnswer()'>SUBMIT</button>";
+}
+function checkAnswer(){
+	choices = document.getElementsByName("choices");
+	for(var i=0; i<choices.length; i++){
+		if(choices[i].checked){
+			choice = choices[i].value;
+		}
+	}
+	if(choice == questions[pos][4]){
+		correct++;
+	}
+	pos++;
+	renderQuestion();
+}
+window.addEventListener("load", renderQuestion, false);
+</script>
+</head>
+<body>
+<h2 id="test_status"></h2>
+<div id="test"></div>
+
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+    <!-- Collect the nav links, forms, and other content for toggling -->
+  	      <!--------------------------------------------navbar -------------------------------------------------------->
+	<a class="navbar-brand" a href="teams.html"><span class="glyphicon glyphicon-arrow-left">BACK</span></a>
+	</div>
+	      <!--------------------------------------------toggle -------------------------------------------------------->
+  </div><!-- /.container-fluid -->
+
+</body>
+</html>

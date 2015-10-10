@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+		<link rel="stylesheet" href="css/mystyle.css">
+    <link rel="stylesheet" href="css/style.css">
+	<link rel="stylesheet" href="css/custom.css"/>
+    <script src="js/jquery-2.1.4.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+<style>
+body {
+   background-color: #4295EC
+}
+
+
+</style>
+ <div class="col-lg-12"><br><br>
+					     <div class="panel panel-default">
+                            <div class="panel-heading">
+                            <center>   <h3 class="panel-title"><i class="fa fa-clock-o fa-fw"></i><img src="img/quiz.png" width="50">QUIZ</h3>
+                            </div>
+                            <div class="panel-body">
+							<!--<img src="img/gh.png" class="img-responsive center-block">-->
+                                <div id="divAnnounce" class="list-group">
+                          
+					<div class="row">
+					<div class="loginbox">
+					<div class="col-lg-12 col-xs-12 col-md-6">
+					
+					</div>
+					</div>
+					</div>
+					
+				</div>
+				      </div><center>
+<script>
+
+var pos = 0, test, test_status, question, choice, choices, chA, chB, chC, correct = 0;
+var questions = [
+    [ "Choose the letter of the option that best approximates the underlined word in each sentence <br> (1-6) <br> 1. George could only stand in shock as Lilian <u>tramped</u> across the field, her angry eyes latched on to him. ", "a. Walked ", "b. Ruined ", "c. Tread heavily", "C" ],
+	[ "2.	The vendor, hoping to finish selling his goods before noon, <u>ambled</u> toward the group of clueless tourists. ", "a. Ruined ", "b, Walked", "c. Tread heavily", "B" ],
+	[ "3.	While Jonathan escaped the accident with just a scratch on his arm, his car was badly <u>mangled</u>.", "a. Ruined ", "b. Dread", "c. Condemned", "A" ],
+	[ "4.	Lourdes watched the performance with <u>apprehension</u>; she felt that anytime now, someone would make a mistake and the audience would laugh at her class.", "a. Condemned ", "b. Ruined ", "c. Dread ", "C" ],
+	[ "5.	The prima ballerina <u>snickered</u> when she saw her main rival stumbling over the new dance steps. ", "a. Ruined", "Laughed derisively", "Tread heavily", "B" ],
+	[ "6.	The mayor <u>denounced</u> the kidnapping of the eight year old year, and vowed that he would do everything in his power to get the girl back and punish the kidnappers to the fullest extent of the law.", "a. Condemned ", "b. Tread heavily", "c. Dread ", "A" ],
+	[ "The Mats by Francisco Arcellana(7-9) <br> 7. Who gave the mat to Nana Emilia? ", "a. Sister", "b. Mother", "Cousin", "B" ],
+	[ "8. Who is the wife of Mr. Angeles? ", "a. Nena", "b. Nana Emilia", "c. Cecelia", "B" ],
+	[ "9. Where did Nana Emilia most of the time kept the mat? ", "a. Cabenet", "c. Trunk", "c. Closet", "B" ],
+	[ "How My Brother Leon Brought Home a Wife by Manuel Arguilla (an excerpt) (10-11) <br> 10. How did Baldo describe the woman?", "a. Lovely ", "b. Beautiful", "c. Attractive", "B" ],
+	[ "11. Who were Baldo and his father talking about?", "a. Emelia", "b. Maria", "c. Clara", "B" ],
+	[ "The Baby in the Bottle by Benjamin Bautista (12-13)12. How old the wife of Mr. Libre? ", "a. 25 years old", "b. 29 years old", "c. 30 years old", "B" ],
+	[ "13. What was mr. Libre’s work? ", "a. Manager", "b. Clerk", "c. Business Man", "B" ],
+	[ "Why Manila Bay is a Tourist Attraction (14-15) <br> 14. It is considered one of the best natural harbors in Southeast Asia. ", "a. Manila Bay", "B. Laguna De bay", "c. Subic Bay", "A" ],
+	[ "15. What is the total coastline of the Manila Bay? ", "a. 196 km", "B. 191 km", "C. 190 km", "C" ],
+	[ "Choose the option that best approximates the underlined word in each sentence. (16-19) <br> 16. After being chased by the cat, the mouse finally escaped through a <u>slit</u> in the wall. ", "a.Narrow opening", "b. Narrow closing", "c. Opening", "A" ],
+	[ "17. When the wind became chilly, the woman pulled the<u> shawl</u> tightly against her shoulders.", "A. Hat", "B. Dress", "C. Blouse", "B" ],
+	[ "18. The woman was told by the doctor to <u>scale down </u>her fat intake as she was nearing obesity. ", "a. Maintain", "b. Decrease", "C. Increase", "A" ],
+	[ "19. When the police was sent in to disperse the protesters, what followed was <u>utter</u> chaos. ", "a. partial", "b. mutter", "c. Total", "C" ],
+	[ "Choose  the letter of the option that is most opposite to the underlined word in the sentence. (20-27) <br> 20. The corrupt governor <u>accumulated</u> a lot of luxury cars during his stay in office. ", "a. coagulated", "b. Dispersed", "c. collected", "B" ],
+	[ "21. The constant air bombardment of the capital was the military‘s way of <u>enervating</u> the opposition.", "a. coddling", "b. Weakening", "c.. strengthening", "B" ],
+	[ "22. The<u> comradeship </u>that develops between soldiers is one that extends beyond the battlefield.", "a. Romance", "b. amity ", "c. hostility", "A" ],
+	[ "23. Leona‘s face showed her disgust as she entered the <u>sordid</u> sausage factory.", "a. depressing", "b. Pleasant", "c. squalid", "B" ],
+	[ "24. Carlo went down on his knees and declared his <u>imperishable</u> love to Carlita.", "a. Sectional", "b. immorta", "c.  temporal", "A" ],
+	[ "25. The day after the fire, the police released Lee‘s picture to the public. Lee, who was wanted for arson, was now considered <u>infamous</u>.", "a. notorious", "b. Famous", "c. . unknown", "B" ],
+	[ "26. The children descended into<u> hysterical</u> laughter when the clown began to perform his tricks.", "a. unrelenting", "b. feverish  ", "c. Composed", "C" ],
+	[ "27. Angela‘s <u>lustrous</u> hair was the reason for her newfound celebrity.", "a. gleaming", "b. Limp", "c. dull ", "B" ]
+	
+	
+];
+function _(x){
+	return document.getElementById(x);
+}
+function renderQuestion(){
+	test = _("test");
+	if(pos >= questions.length){
+		test.innerHTML = "<h2>You got "+correct+" of "+questions.length+" questions correct</h2>";
+		_("test_status").innerHTML = "QUIZ Completed";
+		pos = 0;
+		correct = 0;
+		return false;
+	}
+	_("test_status").innerHTML = "Question "+(pos+1)+" of "+questions.length;
+	question = questions[pos][0];
+	chA = questions[pos][1];
+	chB = questions[pos][2];
+	chC = questions[pos][3];
+	test.innerHTML = "<h3>"+question+"</h3>";
+	test.innerHTML += "<input type='radio' name='choices' value='A'> "+chA+"<br>";
+	test.innerHTML += "<input type='radio' name='choices' value='B'> "+chB+"<br>";
+	test.innerHTML += "<input type='radio' name='choices' value='C'> "+chC+"<br><br>";
+	test.innerHTML += "<button onclick='checkAnswer()'>SUBMIT</button>";
+}
+function checkAnswer(){
+	choices = document.getElementsByName("choices");
+	for(var i=0; i<choices.length; i++){
+		if(choices[i].checked){
+			choice = choices[i].value;
+		}
+	}
+	if(choice == questions[pos][4]){
+		correct++;
+	}
+	pos++;
+	renderQuestion();
+}
+window.addEventListener("load", renderQuestion, false);
+</script>
+</head>
+<body>
+<h2 id="test_status"></h2>
+<div id="test"></div>
+
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+    <!-- Collect the nav links, forms, and other content for toggling -->
+  	      <!--------------------------------------------navbar -------------------------------------------------------->
+	<a class="navbar-brand" a href="teams.html"><span class="glyphicon glyphicon-arrow-left">BACK</span></a>
+	</div>
+	      <!--------------------------------------------toggle -------------------------------------------------------->
+  </div><!-- /.container-fluid -->
+
+</body>
+</html>

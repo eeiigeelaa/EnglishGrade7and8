@@ -1,0 +1,41 @@
+.loginbox h1 { font-size: 30px; letter-spacing: 1px; color: #555;  padding-top: 10px; }
+.loginbox p { margin: 7px 0 20px 0; }
+.loginbox label { display: block; color: #666; letter-spacing: 1px; font-size: 18px; }
+.loginbox input.mini { width:500px; }
+.loginbox input {
+	padding: 20px 20px; 
+	color: #000;
+	font-family: Arial, Helvetica, sans-serif; margin-top: 8px; font-size: 15px; border: 1px solid #ccc; width: 440px;  outline: none;
+}
+.loginbox button {
+	background: #1C5E89;
+	background-image: 
+	-webkit-linear-gradient(top, #FFFFFF, rgba(177, 234, 255, 0.96));
+	padding: 10px 20px;
+	font-size: 25px;
+	border: 1px solid rgba(0, 0, 0, 0.09);
+	letter-spacing: 1px;
+	color: #000;
+	line-height:30px;
+	font-family:	'Helvetica Neue', Helvetica, Arial, sans-serif,bold;
+	-moz-box-shadow: 1px 1px 3px #1D3871;
+	-webkit-box-shadow: 1px 1px 3px #1D3871;
+	box-shadow: 1px 1px 3px #1D3871;
+	cursor: pointer;
+	outline: none;
+	transition: .5s all;
+	-webkit-transition: .5s all;
+	-moz-transition: .5s all;
+	-o-transition: .5s all;
+	-ms-transition: .5s all;
+	padding: 10px 0;
+	font-family: 'Righteous', cursive;
+}
+.title { font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; color:#8E989E; line-height:28px; font-weight:normal; text-align:center; font-size:16px; }
+#facebook-Frame {
+	margin-left:auto;
+	margin-right:auto;
+	max-width:100%;
+	height:70px;
+	display:block;
+}

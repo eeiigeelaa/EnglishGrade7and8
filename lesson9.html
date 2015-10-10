@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+		<link rel="stylesheet" href="css/mystyle.css">
+    <link rel="stylesheet" href="css/style.css">
+	<link rel="stylesheet" href="css/custom.css"/>
+    <script src="js/jquery-2.1.4.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+<style>
+body {
+   background-color: #4295EC
+}
+
+
+</style>
+ <div class="col-lg-12"><br><br><br><br>
+					     <div class="panel panel-default">
+                            <div class="panel-heading">
+                            <center>   <h3 class="panel-title"><i class="fa fa-clock-o fa-fw"></i><img src="img/quiz.png" width="50">QUIZ</h3>
+                            </div>
+                            <div class="panel-body">
+							<!--<img src="img/gh.png" class="img-responsive center-block">-->
+                                <div id="divAnnounce" class="list-group">
+                          
+					<div class="row">
+					<div class="loginbox">
+					<div class="col-lg-12 col-xs-12 col-md-6">
+					
+					</div>
+					</div>
+					</div>
+					
+				</div>
+				      </div><center>
+<script>
+
+var pos = 0, test, test_status, question, choice, choices, chA, chB, chC, correct = 0;
+var questions = [
+    [ "1.	She is the mother of Philippine folklore who compiled and edited the most comprehensive collection of proverbs in our country?   ", "a. Damiana P. Hunio", "b. Damiana R. Labio", "c. Damiana L. Eugenio", "C" ],
+	[ "2.	She is the mother of Philippine folklore who compiled and edited the most comprehensive collection of proverbs in our country?", "a. Ethical proverbs recommending certain virtues and condemning certain vices ", "b. Proverbs ", "c. Proverbs expressing general truths and observations about life and human nature", "B" ],
+	[ "3.	What categories of proverbs is this? “Dai mo pagpaagahan an magigibo mo ngonyan.(Bikol) Do not put off for tomorrow what you can do for today.”?", "a. Ethical proverbs recommending certain virtues and condemning certain vices ", "b. Proverbs expressing a general attitude towards life and the laws that govern life", "c. Proverbs expressing general truths and observations about life and human nature", "A" ],
+	[ "4.	How many Categories are proverbs have?", "a. 4", "b. 8", "c. 6", "C" ],
+	[ "5.	Ang gugma sang tigulang daw igui nga nagakamang. (Hiligaynon) The love of an old man is like a snail that crawls. What categories of proverbs is this?", "a. Humorous proverbs ", "b. Ethical proverbs recommending certain virtues and condemning certain vices", "c. Proverbs expressing general truths and observations about life and human nature ", "A" ],
+	[ "6.	According to the People of the Philippines by the Philippines tourism promotions board, how many populations the Philippines have?", "a. 50 million", "b. 90 million", "c. 70 million", "C" ],
+	[ "7.	According to _________ folklore, this world was created by a great Being?", "a. Malay", "b. Maranaw", "c. Saranaw", "B" ],
+	[ "8.	The world divided into how many layer?", "a. 9", "b. 6", "c. 7", "B" ],
+	[ "9.	It is the door which is guarded day and night by huge mythical birds? ", "a. Corvada ", "b. Garoda ", "c. Racoda ", "B" ],
+	[ "10.	From what story is this? Everything was shapeless and formless—the earth, the sky, the sea, and the air were almost all mixed up?", "a.How the World Was Created (Ilokano) ", "b. How the World Was Created (Panayan) ", "c. How the World Was Created (Ilonggo)", "B" ],
+	[ "11.	He was an industrious, loving, and kind god whose chief concern was how to impose order over the whole confused set-up of things?", "a.Lam-ang ", "b.Tungkung Langit  ", "c. Dr. Angeles ", "B" ],
+	[ "12.	Who is the wife of Tungkung Langit?", "a. Maranaw", "b. Alunsina  ", "c.Batlog ", "B" ],
+	[ "13.	The wide island of Panay was originally inhabited by?", "a. Bagobo ", "b. Negritos ", "c. Badjao", "B" ],
+	[ "14.	Early in the 13th century, who sold the coastal shores and lowlands to 10 Bornean Datus who escapes from the repression of Sri Vishayan Empire? ", "a. Marikudo ", "b. Malay ", "c. Badjao", "A" ],
+	[ "15.	The Filipinos in central Philippines are generally and collectively called? ", "a. Luzon ", "b. Mindanao ", "c. Visayans ", "C" ],
+	[ "16.	This was the abode of God the Most High? ", "a. Genesis", "b. Samal Genesis ", "c. Negritos  ", "B" ],
+	[ "17. The technical term for the pre-existence of the soul of the Prophet?", "a. Nur Muhammad ", "b. And Nur ", "c. And Nur Muhammad ", "C" ],
+	[ "18.	The God then summoned the angel?", "a. Gabriel [Gabriel]", "b. Jibra‘il [Gabriel] ", "c. Jib‘il [Gabby] ", "B" ],
+	[ "19.	This municipality characterized by uneven distribution of lowlands?", "a. Negritos Municipality", "b. Malay Municipality ", "c. Samal Municipality", "C" ],
+	[ "20.	This refers to the level language is used in everyday speech? ", "a. Collo", "b. Colloquial", "c. Proverbs", "B" ],
+	[ "21.	It is a level of language that reflects the close relationship of the people speaking?", "a.Familiar ", "b. Family", "c. Siblings", "A" ],
+	[ "22.	In the early days, when the sky was still low, This two brothers lived with their parents on earth.", "a. Batlog", "b. Ibalon", "c.  Ingat and Daskol ", "C" ],
+	[ "23.	It can give special meaning or extraordinary qualities to common animals such as frogs and bears. ", "a. myth", "b. Ibalon", "c. Maranaw", "A" ],
+	[ "24.	He is the hero who came to the rich land of Ibalon?", "a. Ibalon", "b. Baltog", "c. Ingat and Daskol", "B" ],
+	[ "25.	He could change its image to deceive enemies? ", "a. Kurita ", "b. Oriol ", "c. Tarabusaw", "B" ],
+	[ "26.	It is a terrible creature with many limbs, lived partly on land and partly on sea, but its favorite haunt was the mountain where the rattan palm grew and here it brought utter destruction on every living thing?", "a. Tarabusaw", "b.  Oriol", "c.  Kurita", "C" ],
+	[ "27.	An ugly creature in the form of a man, lived on Mt. Matutum, and far and wide from that place he devoured the people, laying waste to the land? ", "a. Oriol ", "b. Tarabusaw", "c.  Baltog ", "B" ],
+	[ "28.	This bird was so large that, when on the wing, it covered the sun and brought darkness to the earth. Its egg was as large as a house? ", "a. an enormous bird called Pah", "b. Genisis", "c. Myth", "A" ],
+	[ "29.	He is the son of Don Juan and Namongan? ", "a. Moranaw ", "b. Lam-ang ", "c. Ines Kannoyan", "B" ],
+	[ "30.	Who was the young woman whom Lam-ang wanted to woo.?", "a. Lam-ang ", "b. Ines Kannoyan", "c. Ingat and Daskol", "B" ]
+	
+];
+function _(x){
+	return document.getElementById(x);
+}
+function renderQuestion(){
+	test = _("test");
+	if(pos >= questions.length){
+		test.innerHTML = "<h2>You got "+correct+" of "+questions.length+" questions correct</h2>";
+		_("test_status").innerHTML = "QUIZ Completed";
+		pos = 0;
+		correct = 0;
+		return false;
+	}
+	_("test_status").innerHTML = "Question "+(pos+1)+" of "+questions.length;
+	question = questions[pos][0];
+	chA = questions[pos][1];
+	chB = questions[pos][2];
+	chC = questions[pos][3];
+	test.innerHTML = "<h3>"+question+"</h3>";
+	test.innerHTML += "<input type='radio' name='choices' value='A'> "+chA+"<br>";
+	test.innerHTML += "<input type='radio' name='choices' value='B'> "+chB+"<br>";
+	test.innerHTML += "<input type='radio' name='choices' value='C'> "+chC+"<br><br>";
+	test.innerHTML += "<button onclick='checkAnswer()'>SUBMIT</button>";
+}
+function checkAnswer(){
+	choices = document.getElementsByName("choices");
+	for(var i=0; i<choices.length; i++){
+		if(choices[i].checked){
+			choice = choices[i].value;
+		}
+	}
+	if(choice == questions[pos][4]){
+		correct++;
+	}
+	pos++;
+	renderQuestion();
+}
+window.addEventListener("load", renderQuestion, false);
+</script>
+</head>
+<body>
+<h2 id="test_status"></h2>
+<div id="test"></div>
+
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+    <!-- Collect the nav links, forms, and other content for toggling -->
+  	      <!--------------------------------------------navbar -------------------------------------------------------->
+	<a class="navbar-brand" a href="teams.html"><span class="glyphicon glyphicon-arrow-left">BACK</span></a>
+	</div>
+	      <!--------------------------------------------toggle -------------------------------------------------------->
+  </div><!-- /.container-fluid -->
+
+</body>
+</html>
